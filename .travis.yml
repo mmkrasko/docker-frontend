@@ -1,0 +1,8 @@
+language: generic
+sudo: required
+services:
+  - docker
+before_install:
+  - docker build -t mmkrasko/docker-frontend -f Dockerfile.dev .
+script:
+  - docker run -e CI=true mmkrasko/docker-frontend npm run test
