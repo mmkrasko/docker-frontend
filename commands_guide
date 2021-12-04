@@ -1,0 +1,13 @@
+# Build with a tag
+docker build -t mmkrasko/frontend .
+
+
+# flag -f means to lunch specified file, but not just default Dockerfile
+docker build -f Dockerfile.dev .
+
+# task for making an automatical update when we are making changes on our local machine
+docker run -p 3000:3000 -v /home/node/app/node_modules      -v $(pwd):/home/node/app 5d146afa933a24bdafcac16dbfe79175143b8a01e5c97983cd0abef05b917e55
+
+            ports       we don't need to link container     pwd - current working directory for project
+            linking     folder with this one on local        we are making a link in the container to the path
+                        machine                             from local machine
